@@ -124,17 +124,22 @@ body {
     margin-bottom: 2.5%;
   }
 
-  @media only screen and (max-width: 991px) {
-    .form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100vw;
-    }
-    .btn {
-        min-width: 120px;
-        min-height: 40px;
-      }
+@media only screen and (max-width: 991px) {
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95vw;
   }
-  
+  .btn {
+    min-width: 120px;
+    min-height: 40px;
+  }
+  .movie-card {
+    width: 100%;
+    height: auto;
+    margin: 2.5% 0;
+  }
+}
+
     
