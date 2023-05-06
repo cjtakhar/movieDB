@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/wga/static/css/main.c31768a3.css",
+    "main.js": "/wga/static/js/main.03efb6b0.js",
+    "static/js/651.7632c202.chunk.js": "/wga/static/js/651.7632c202.chunk.js",
+    "index.html": "/wga/index.html",
+    "main.c31768a3.css.map": "/wga/static/css/main.c31768a3.css.map",
+    "main.03efb6b0.js.map": "/wga/static/js/main.03efb6b0.js.map",
+    "651.7632c202.chunk.js.map": "/wga/static/js/651.7632c202.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c31768a3.css",
+    "static/js/main.03efb6b0.js"
+  ]
+}
