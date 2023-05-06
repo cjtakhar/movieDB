@@ -5,7 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-md">
-      <Link className="navbar-brand" to="/">
+      <Link className="navbar-brand" to="/wga">
         MOVIE DB
       </Link>
       <button
@@ -23,12 +23,12 @@ const Navbar = () => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link className="nav-link" to="/" activeclassname="active">
+            <Link className="nav-link" to="/login" activeclassname="active">
               Login
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/" activeclassname="active">
+            <Link className="nav-link" to="/about" activeclassname="active">
               About
             </Link>
           </li>
