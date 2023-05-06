@@ -1,38 +1,140 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+body {
+    margin: 0 auto;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .navbar {
+    background-color: purple;   
   }
-  to {
-    transform: rotate(360deg);
+
+  .navbar-brand {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 2.5%;
+    transition: all 0.2s ease-in-out;
   }
-}
+
+  .navbar-brand:hover {
+    transform: scale(1.1);
+    color: white;
+  }
+
+  .navbar-nav .nav-link {
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .nav-link:hover {
+    transform: scale(1.1);
+  }
+  
+  .title {
+    font-size: 3.5rem;
+    text-align: center;
+  }
+  
+  .form-container {
+    margin-top: 5%;
+    text-align: center;
+  }
+  
+  .form {
+    display: inline-block;
+    width: 50vw;
+  }
+  
+  .input-search {
+    width: 70%;
+    height: 3rem;
+    border: 0.1rem solid black;
+    border-radius: 0.5rem;
+    padding: 1.5% 2%;
+    margin-bottom: 2.5%;
+    margin-top: 2.5%;
+    transition: width 0.2s ease-in-out;
+    text-indent: 2%;
+    font-size: 2rem;
+    vertical-align: middle;
+  }
+  
+  .input-search:focus {
+    outline: none;
+    box-shadow: 0 0 0.25rem rgba(0, 0, 255, 0.5);
+  }
+  
+  .btn {
+    background-color: purple;
+    color: white;
+    border: 0.1rem solid black;
+    border-radius: 0.5rem;
+    width: 20%;
+    margin: 2.5%;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    vertical-align: middle;
+  }
+  
+  .btn:hover {
+    transform: scale(1.1);
+    background-color: purple;
+    color: white;
+  }
+  
+  .movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 90vw;
+    margin: auto;
+    padding: 1.67%;
+  }
+  
+  .movie-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    height: 600px;
+    margin: 2.5%;
+    padding: 1.67%;
+    box-shadow: 0.1rem 0.1rem 0.25rem grey;
+  }
+  
+  .movie-card img {
+    width: 100%;
+    height: 66.67%;
+    object-fit: cover;
+    margin-bottom: 2.5%;
+  }
+  
+  .movie-card h3 {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 2.5%;
+  }
+  
+  .movie-card p {
+    font-size: 0.9rem;
+    text-align: justify;
+    margin-bottom: 2.5%;
+  }
+
+  @media only screen and (max-width: 991px) {
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+    }
+    .btn {
+        min-width: 120px;
+        min-height: 40px;
+      }
+  }
+  
+    
