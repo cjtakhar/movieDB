@@ -69,7 +69,7 @@ body {
     border: 0.1rem solid black;
     border-radius: 0.5rem;
     width: 15%;
-    margin: 2.5%;
+    margin-left: 2.5%;
     font-size: 1.5rem;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
