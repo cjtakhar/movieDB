@@ -88,7 +88,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 50vh;
-    width: 90vw;
+    width: 80vw; /* Changed width to 80vw */
     margin: auto;
     padding: 1.67%;
   }
@@ -98,11 +98,18 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 25%;
-    height: 600px;
+    width: 30%; /* Changed width to 30% */
     margin: 2.5%;
     padding: 1.67%;
     box-shadow: 0.1rem 0.1rem 0.25rem grey;
+    overflow: auto;
+    max-height: 500px;
+    transition: opacity 0.3s;
+  }
+  
+  
+  .movie-card .overview {
+    white-space: pre-line;
   }
   
   .movie-card img {
@@ -124,12 +131,67 @@ body {
     margin-bottom: 2.5%;
   }
 
+  .movie-details {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10;
+  }
+  
+  .movie-details img {
+    max-width: 50%;
+    padding: 10%;
+  }
+  
+  .movie-details-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 30%;
+    color: white;
+    weight: bold;
+  }
+  
+  .movie-details-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 50px;
+  }
+  
+  .movie-details-overview {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+    text-justify: inter-word;
+    margin-bottom: 20px;
+  }
+  
+  .btn-details {
+    display: block;
+    margin-left: auto;
+    margin-right: 20px;
+    background-color: white;
+    border-radius: 25px;
+    border: none;
+  }
+  
+  
+
   .container {
     display: flex;
     justify-content: center;
     align-items:first baseline;
     height: 100vh;
     width: 100vw;
+    background-color: #f5f5f5;
   }
   
   .info-container {

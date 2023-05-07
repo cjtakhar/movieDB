@@ -4,8 +4,9 @@ import axios from "axios";
 const api_key = process.env.REACT_APP_API_KEY;
 
 const MovieDatabase = () => {
-  const [movie, setMovie] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState("");
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -23,14 +24,18 @@ const MovieDatabase = () => {
     try {
       const res = await axios.get(url, options);
       if (res.data.results.length === 0) {
-        setMovie([]);
+        setMovies([]);
         console.log("No movies found for search query:", search);
       } else {
-        setMovie(res.data.results);
+        setMovies(res.data.results);
       }
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const handleMovieClick = (movie) => {
+    setSelectedMovie(movie);
   };
 
   return (
@@ -51,19 +56,34 @@ const MovieDatabase = () => {
         </form>
       </div>
       <div className="movie-container">
-        {movie.map((movie) => (
+        {movies.map((movie) => (
           <div key={movie.id} className="movie-card">
-            <img
-              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-              alt={movie.title + " poster"}
-            />
-            <h3>{movie.title}</h3>
-            <p>{movie.overview}</p>
+            {movie.poster_path && (
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                alt={movie.title + " poster"}
+                onClick={() => handleMovieClick(movie)}
+              />
+            )}
           </div>
         ))}
       </div>
+      {selectedMovie && (
+        <div className="movie-details">
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
+            alt={selectedMovie.title + " poster"}
+          />
+          <div className="movie-details-text">
+            <h3 className="movie-details-title">{selectedMovie.title}</h3>
+            <p className="movie-details-overview">{selectedMovie.overview}</p>
+            <button className="btn-details" onClick={() => setSelectedMovie(null)}>x</button>
+          </div>
+        </div>
+      )}
     </div>
-  );
+  );  
 };
 
 export default MovieDatabase;
+
