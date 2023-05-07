@@ -14,7 +14,7 @@ const MovieDatabase = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = `https://api.themoviedb.org/3/search/movie?query=${search}&include_adult=false&language=en-US&page=1&api_key=${api_key}`;
+    const url = `https://api.themoviedb.org/3/search/multi?query=${search}&include_adult=false&language=en-US&page=1&api_key=${api_key}`;
     const options = {
       headers: {
         accept: "application/json",
@@ -52,7 +52,7 @@ const MovieDatabase = () => {
             onChange={handleChange}
           />
           <button className="btn" type="submit">
-            Enter
+            Search
           </button>
         </form>
       </div>
@@ -71,19 +71,20 @@ const MovieDatabase = () => {
       </div>
       {selectedMovie && (
         <div className="movie-details" onClick={() => setSelectedMovie(null)}>
-        <img
-          src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
-          alt={selectedMovie.title + " poster"}
-        />
-        <div className="movie-details-text">
-          <h3 className="movie-details-title">{selectedMovie.title}</h3>
-          <p className="movie-details-overview">{selectedMovie.overview}</p>
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
+            alt={selectedMovie.title + " poster"}
+          />
+          <div className="movie-details-text">
+            <h3 className="movie-details-title">{selectedMovie.title}</h3>
+            <p className="movie-details-overview">{selectedMovie.overview}</p>
+          </div>
         </div>
-      </div>      
       )}
     </div>
-  );  
+  );
 };
 
 export default MovieDatabase;
+
 
