@@ -37,6 +37,11 @@ const Navbar = () => {
               Discover
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/upcoming" activeclassname="active">
+              Upcoming
+            </Link>
+          </li>
         </ul>
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">

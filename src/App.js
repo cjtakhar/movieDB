@@ -7,6 +7,7 @@ import About from './components/about';
 import TopRated from './components/topRated';
 import Discover from './components/discover';
 import Trending from './components/trending';
+import Upcoming from './components/upcoming';
 import Lounge from './components/lounge';
 import './App.css';
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/top" element={ < TopRated /> } />
           <Route path="/discover" element={ < Discover /> } />
           <Route path="/trending" element={ < Trending /> } />
+          <Route path="/upcoming" element={ < Upcoming /> } />
         </Routes>
       </BrowserRouter>
     </div>
