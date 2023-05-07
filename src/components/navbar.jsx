@@ -5,7 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-md">
-      <Link className="navbar-brand" to="/wga">
+      <Link className="navbar-brand" to="/movieDB">
         MOVIE DB
       </Link>
       <button
