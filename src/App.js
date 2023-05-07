@@ -9,6 +9,7 @@ import Discover from './components/discover';
 import Trending from './components/trending';
 import Upcoming from './components/upcoming';
 import Lounge from './components/lounge';
+import NotFound from './components/404';
 import './App.css';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/discover" element={ < Discover /> } />
           <Route path="/trending" element={ < Trending /> } />
           <Route path="/upcoming" element={ < Upcoming /> } />
+          <Route path="*" element={ < NotFound /> } />
         </Routes>
       </BrowserRouter>
     </div>
