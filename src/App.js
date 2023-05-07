@@ -18,7 +18,7 @@ function App() {
       < BrowserRouter>
       <Navbar />
         <Routes>
-          <Route path="/wga" element={<Dashboard />} />
+          <Route path="/movieDB" element={<Dashboard />} />
           <Route path="/about" element={ <About />} />
           <Route path="/account" element={ <Account />} />
           <Route path="/login" element={ <Login />} />
