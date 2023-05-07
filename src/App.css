@@ -240,4 +240,37 @@ body {
   }
 }
 
+@media only screen and (max-width: 480px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:100vw;
+    height: 25vh;
+    border-right: none;
+    border-bottom: solid 1px;
+    border: none;
+  }
+
+  .info-text {
+    margin: 5px;
+  }
+
+  .form-container {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+
     
