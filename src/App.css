@@ -222,6 +222,23 @@ body {
   margin: 20px;
 }  
 
+.top-movie-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.top-title {
+  width: 100%;
+  text-align: center;
+  margin: 20px;
+}
+
+.top-movie-container div {
+  width: calc(33.33% - 10px);
+  margin-bottom: 20px;
+}
+
 @media only screen and (max-width: 991px) {
   .form {
     display: flex;
@@ -239,6 +256,30 @@ body {
     margin: 2.5% 0;
   }
 }
+
+@media only screen and (min-width: 768px) {
+  .movie-card {
+    width: 45%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 90vw;
+    margin: auto;
+    padding: 1.67%;
+  }
+  .movie-card {
+    width: 23%;
+    margin: 1%;
+  }
+}
+
 
 @media only screen and (max-width: 480px) {
   .container {
@@ -270,7 +311,17 @@ body {
     align-items: center;
     width: 100%;
   }
-}
+    .top-movie-container div{
+      display: flex;
+      flex-direction: column;
+      align-items: center; 
+    }
+    .movie-card {
+      width: 80%;
+      margin-bottom: 1rem; 
+    }
+  }
+
 
 
     

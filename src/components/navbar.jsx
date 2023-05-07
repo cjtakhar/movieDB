@@ -21,7 +21,24 @@ const Navbar = () => {
       </button>
 
       <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav">
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item">
+            <Link className="nav-link" to="/top" activeclassname="active">
+              Top Rated
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/trending" activeclassname="active">
+              Trending
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/discover" activeclassname="active">
+              Discover
+            </Link>
+          </li>
+        </ul>
+        <ul className="navbar-nav ml-auto">
           <li className="nav-item">
             <Link className="nav-link" to="/login" activeclassname="active">
               Login
@@ -39,6 +56,8 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
 
 
 

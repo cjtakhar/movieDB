@@ -1,5 +1,4 @@
 import MovieDatabase from './tmdb';
-
 const Dashboard = ()=> {
     return (
         <div>
