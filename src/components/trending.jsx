@@ -68,7 +68,7 @@ const Trending = () => {
             <h3 className="movie-details-title">{selectedMovie.title}</h3>
             {movieDetails && (
               <div>
-                <p>Overview: {movieDetails.overview}</p>
+                <p>{movieDetails.overview}</p>
                 <p>Director: {movieDetails.credits.crew.find(crewMember => crewMember.job === "Director")?.name}</p>
                 <p>Actors: {movieDetails.credits.cast.slice(0
                   , 5).map((actor) => actor.name).join(", ")}</p>
