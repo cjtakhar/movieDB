@@ -67,14 +67,19 @@ const Discover = () => {
           <div className="movie-details-text">
             <h3 className="movie-details-title">{selectedMovie.title}</h3>
             {movieDetails && (
-              <div>
+                <div>
                 <p>{movieDetails.overview}</p>
                 <p>Director: {movieDetails.credits.crew.find(crewMember => crewMember.job === "Director")?.name}</p>
                 <p>Actors: {movieDetails.credits.cast.slice(0, 5).map((actor) => actor.name).join(", ")}</p>
+                <p>Writers: {movieDetails.credits.crew
+                  .filter(crewMember => crewMember.department === "Writing")
+                  .slice(0, 5)
+                  .map((writer) => writer.name)
+                  .join(", ")}</p>
                 <p className="movie-details-release">Release Date: {new Date(selectedMovie.release_date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</p>
                 <p>Runtime: {movieDetails.runtime} minutes</p>
                 <p className="movie-details-rating">Rating: {selectedMovie.vote_average.toFixed(1)}</p>
-              </div>
+              </div> 
             )}
           </div>
         </div>
