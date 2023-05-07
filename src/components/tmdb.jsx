@@ -28,6 +28,7 @@ const MovieDatabase = () => {
         console.log("No movies found for search query:", search);
       } else {
         setMovies(res.data.results);
+        setSearch("");
       }
     } catch (err) {
       console.log(err);

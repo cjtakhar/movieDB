@@ -3,6 +3,7 @@ import axios from "axios";
 
 const TopRated = () => {
   const [topRated, setTopRated] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
   const api_key = process.env.REACT_APP_API_KEY;
 
   const getTopRated = async () => {
@@ -30,19 +31,35 @@ const TopRated = () => {
     getTopRated();
   }, []);
 
+  const handleMovieClick = (movie) => {
+    setSelectedMovie(movie);
+  };
+
   return (
     <div>
       <div className="top-movie-container">
-      {topRated.map((topRated) => (
-        <div key={topRated.id}>
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${topRated.poster_path}`}
-            alt={`${topRated.title} poster`}
-          />
-        </div>
-      ))}
+        {topRated.map((topRated) => (
+          <div key={topRated.id}>
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${topRated.poster_path}`}
+              alt={`${topRated.title} poster`}
+              onClick={() => handleMovieClick(topRated)}
+            />
+          </div>
+        ))}
       </div>
-     
+      {selectedMovie && (
+        <div className="movie-details" onClick={() => setSelectedMovie(null)}>
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
+            alt={selectedMovie.title + " poster"}
+          />
+          <div className="movie-details-text">
+            <h3 className="movie-details-title">{selectedMovie.title}</h3>
+            <p className="movie-details-overview">{selectedMovie.overview}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -3,6 +3,7 @@ import axios from "axios";
 
 const Trending = () => {
   const [trending, setTrending] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
   const api_key = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
@@ -30,20 +31,38 @@ const Trending = () => {
     getTrending();
   }, []);
 
+  const handleMovieClick = (movie) => {
+    setSelectedMovie(movie);
+  };
+
   return (
     <div>
-        <div className="top-movie-container">
-      {trending.map((trending) => (
-        <div key={trending.id}>
+      <div className="top-movie-container">
+        {trending.map((trending) => (
+          <div key={trending.id}>
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${trending.poster_path}`}
+              alt={`${trending.title} poster`}
+              onClick={() => handleMovieClick(trending)}
+            />
+          </div>
+        ))}
+      </div>
+      {selectedMovie && (
+        <div className="movie-details" onClick={() => setSelectedMovie(null)}>
           <img
-            src={`https://image.tmdb.org/t/p/w500/${trending.poster_path}`}
-            alt={`${trending.title} poster`}
+            src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
+            alt={`${selectedMovie.title} poster`}
           />
+          <div className="movie-details-text">
+            <h3 className="movie-details-title">{selectedMovie.title}</h3>
+            <p className="movie-details-overview">{selectedMovie.overview}</p>
+          </div>
         </div>
-      ))}
-        </div>
+      )}
     </div>
   );
 };
 
 export default Trending;
+
