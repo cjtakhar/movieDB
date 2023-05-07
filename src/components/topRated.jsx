@@ -8,7 +8,9 @@ const TopRated = () => {
   const api_key = process.env.REACT_APP_API_KEY;
 
   const getTopRated = async () => {
-    const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}&language=en-US`;
+    const urls = Array.from({ length: 5 }, (_, i) =>
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}&language=en-US&page=${i + 1}`
+    );
     const options = {
       headers: {
         accept: "application/json",
@@ -16,17 +18,19 @@ const TopRated = () => {
       },
     };
     try {
-      const res = await axios.get(url, options);
-      if (res.data.results.length === 0) {
+      const responses = await Promise.all(urls.map(url => axios.get(url, options)));
+      const results = responses.flatMap(res => res.data.results);
+      if (results.length === 0) {
         setTopRated([]);
-        console.log("No movies found.", topRated);
+        console.log("No movies found.");
       } else {
-        setTopRated(res.data.results);
+        setTopRated(results);
       }
     } catch (err) {
       console.log(err);
     }
   };
+  
 
   useEffect(() => {
     getTopRated();
