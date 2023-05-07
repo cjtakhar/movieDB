@@ -23,8 +23,8 @@ const Navbar = () => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <Link className="nav-link" to="/top" activeclassname="active">
-              Top Rated
+            <Link className="nav-link" to="/top100" activeclassname="active">
+              Top 100
             </Link>
           </li>
           <li className="nav-item">

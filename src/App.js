@@ -23,7 +23,7 @@ function App() {
           <Route path="/account" element={ <Account />} />
           <Route path="/login" element={ <Login />} />
           <Route path="/lounge" element={ < Lounge /> } />
-          <Route path="/top" element={ < TopRated /> } />
+          <Route path="/top100" element={ < TopRated /> } />
           <Route path="/discover" element={ < Discover /> } />
           <Route path="/trending" element={ < Trending /> } />
           <Route path="/upcoming" element={ < Upcoming /> } />
