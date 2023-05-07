@@ -4,6 +4,7 @@ import axios from "axios";
 const TopRated = () => {
   const [topRated, setTopRated] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [movieDetails, setMovieDetails] = useState(null);
   const api_key = process.env.REACT_APP_API_KEY;
 
   const getTopRated = async () => {
@@ -31,8 +32,15 @@ const TopRated = () => {
     getTopRated();
   }, []);
 
-  const handleMovieClick = (movie) => {
+  const handleMovieClick = async (movie) => {
     setSelectedMovie(movie);
+    const url = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${api_key}&language=en-US&append_to_response=credits`;
+    try {
+      const res = await axios.get(url);
+      setMovieDetails(res.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -56,9 +64,19 @@ const TopRated = () => {
           />
           <div className="movie-details-text">
             <h3 className="movie-details-title">{selectedMovie.title}</h3>
-            <p className="movie-details-overview">{selectedMovie.overview}</p>
+            {movieDetails && (
+              <div>
+                <p>{movieDetails.overview}</p>
+                <p>Director: {movieDetails.credits.crew.find(crewMember => crewMember.job === "Director")?.name}</p>
+                <p>Actors: {movieDetails.credits.cast.slice(0, 5).map((actor) => actor.name).join(", ")}</p>
+                <p className="movie-details-release">Release Date: {new Date(selectedMovie.release_date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</p>
+                <p>Runtime: {movieDetails.runtime} minutes</p>
+                <p className="movie-details-rating">Rating: {selectedMovie.vote_average.toFixed(1)}</p>
+              </div>
+            )}
           </div>
         </div>
+     
       )}
     </div>
   );
