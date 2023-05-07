@@ -69,17 +69,16 @@ const MovieDatabase = () => {
         ))}
       </div>
       {selectedMovie && (
-        <div className="movie-details">
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
-            alt={selectedMovie.title + " poster"}
-          />
-          <div className="movie-details-text">
-            <h3 className="movie-details-title">{selectedMovie.title}</h3>
-            <p className="movie-details-overview">{selectedMovie.overview}</p>
-            <button className="btn-details" onClick={() => setSelectedMovie(null)}>x</button>
-          </div>
+        <div className="movie-details" onClick={() => setSelectedMovie(null)}>
+        <img
+          src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
+          alt={selectedMovie.title + " poster"}
+        />
+        <div className="movie-details-text">
+          <h3 className="movie-details-title">{selectedMovie.title}</h3>
+          <p className="movie-details-overview">{selectedMovie.overview}</p>
         </div>
+      </div>      
       )}
     </div>
   );  
